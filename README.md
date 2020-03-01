@@ -152,9 +152,52 @@ Performance with cdn semantic:
 - The MVP of Sapper app is routes - an idea to map requests to directories. MVC is a proud centralized system, conforming to theory, not practice. It first deciphers request URI, chooses handler, than finds next redirect. Why is it necessary to act from one single controller location is not explained. Handler of request belongs to that request (URI). So, it's even more rational and practical to have many controllers and handlers for every request as Sapper does. MVC is toothache bore, wheres next and sapper approached is cool, much like ban on pointer arithmetic and garbage collecting. 
 - Sure sapper is opinionated, but no more than JavaScript itself. Makes full sense to limit a little full freedom of algorithm to achieve convention looking grace.
 - React's MVVM data driven approach is centralized by nature. It handles  requests by index file and chooses appropriate action by deciphering URI either. But wy do we have to decipher in the first hand?
-- Application is a historical request/response interaction of homo with computer. Computer has far exceeding freedom of actions than enough. The whole power of scripting. The only requirement is mappish relation between state and view - you can't get different views with the same backend/model state: Many-to-One. Must be refreshable by state only. View must be honest - exact snippet of computer mind for homo. All about importance of being data honest. No different homo/view representations for the same computer memory. So, it must be data/model driven, model first. One way to insure that is one place to deal with request and one-to-one URI encoding of requests.
-- To separate view of model by file types in code for developer is simple. Not so simple for model first. MVC solves the problem by allowing only one place for URI deciphering - even one file, named controller. But it's clearly overkill. By attaching personal controller to every request/URI one can skip encipher/decipher step which makes things way simpler. Controller's sole single responsibility is to map handler to request and that handler makes PPC job and identifies next redirect. 
+- Basic passive application is a client/server temporary interaction of homo with ppcs (plain power computing system). While it is time included it also has one important requirement of time independence. It must be memory state based, reproducible, consistent. 
+- Computer has far exceeding freedom of actions that is enough - the whole power of scripting. The only requirement is mappish relation between state and view - you can't get different views with the same backend/model state: Many-to-One. Must be refreshable by state only. View must be honest - exact snippet of computer mind for homo. All about importance of being data honest. No different homo/view representations for the same computer memory. So, it must be data/model driven, model first. One way to insure that is to ensure only one entry point for all requests and one-to-one URI encoding of them. In simplest way - only one executable file, named controller.
+- Separation view from model in code for developer is simple task, solved by different file types. Not so simple for model first. MVC solution for the problem - allowing only one place for URI deciphering - one file, named controller. But it appears to be overkill overkill. Why single file and not a single file type? By attaching personal controller to every request/URI one can skip encipher/decipher step which makes things way too layered and complicated. Controller's sole single responsibility is to map handler to request and that handler makes all PPC job and identifies next redirect. 
 - Better solution is to multiply controllers by one-to-one map to URI. Doesn't matter that controller is spread between different files as far as it still does it's job - provides appropriate handle to every URI/request. Doesn't matter in which particular file that magic happens. That way a little opinionated framework does a great job to exclude the whole difficult step from developer. Many handlers for one request are excluded automatically by matching URI, still enforcing model first architecture - handler first updates model and than calls appropriate view, presenting that model state to homo. That is what Sapper routing does - exclude exceeding, unnecessary step from developer mind flow. Same as excluding VDOM. That is just another charming manifestation of main Linux belief - "everything is directory", tree multiplicity has adequate power to solve in natural way every opposite, mapping task.
    
 Second step is sapper auth architecture, starting with [this article](https://www.nielsvandermolen.com/authentication-example-svelte-sapper/) 
-- 
+- Support sessions in simplest way as in SRW by installing express-session and session-file-store packages and body-parser for parsing cookies. Basic session functionality has it's place in server.js configuration file:
+
+        import sirv from 'sirv';
+        import polka from 'polka';
+        import compression from 'compression';
+        import bodyParser from 'body-parser';
+        import session from 'express-session';
+        import sessionFileStore from 'session-file-store';
+        import * as sapper from '@sapper/server';
+        
+        const FileStore = sessionFileStore(session);
+        
+        
+        const { PORT, NODE_ENV } = process.env;
+        const dev = NODE_ENV === 'development';
+        
+        polka()
+        	.use(bodyParser.json())
+        	.use(session({
+        		secret: 'conduit',
+        		resave: false,
+        		saveUninitialized: true,
+        		cookie: {
+        			maxAge: 31536000
+        		},
+        		store: new FileStore({
+        			path: process.env.NOW ? `/tmp/sessions` : `.sessions`
+        		})
+        	}))
+        	.use(
+        		compression({ threshold: 0 }),
+        		sirv('static', { dev }),
+        		sapper.middleware({
+        			session: req => ({
+        				user: req.session && req.session.user
+        			})
+        		})
+        	)
+        	.listen(PORT, err => {
+        		if (err) console.log('error', err);
+        	});
+        Nothing else needed to start using sessions, but error: <App> was created with unknown prop
+        'session'. Cutoff static/manifest.jason
