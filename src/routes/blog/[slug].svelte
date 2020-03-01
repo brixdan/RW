@@ -59,8 +59,10 @@
 	<title>{post.title}</title>
 </svelte:head>
 
-<div class="ui header green">{post.title}</div>
+<div class="ui card">
+<div class="ui header centered vertically padded">{post.title}</div>
 
 <div class='content'>
 	{@html post.html}
+</div>
 </div>
