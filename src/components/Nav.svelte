@@ -11,28 +11,26 @@
 
 <div class="ui medium top menu transition visible"  >
 	<div class="ui container">
-	<a class="item {segment === undefined ? 'active' : undefined}" href=".">Home</a>
-	<a class="item {segment === 'about' ? 'active' : undefined}" href="about">About</a>
-	<a rel=prefetch class="item {segment === 'blog' ? 'active' : undefined}" href="blog">Blog</a>
+	<a class="item {segment === undefined ? 'active' : undefined}" href=".">
+		<i class="home icon"></i>Home</a>
+	<a class="item {segment === 'about' ? 'active' : undefined}" href="about">
+		<i class="info icon"></i>About</a>
+	<a rel=prefetch class="item {segment === 'blog' ? 'active' : undefined}" href="blog">
+		<i class="blog icon"></i>Blog</a>
 	{#if $session.user}
-		<li class="item">
-			<a rel='prefetch' href="/editor" class="nav-link" class:active="{$page.path === '/editor'}">
-				<i class="ion-compose"></i>&nbsp;New Post
-			</a>
-		</li>
+	<div class="right menu">
+		<a rel='prefetch' class="item {segment === 'editor' ? 'active' : undefined}" href="editor">
+			<i class="edit icon"></i>&nbsp;New Post
+		</a>
 
-		<li class="item">
-			<a rel='prefetch' href="/settings" class="nav-link" class:active="{$page.path === '/settings'}">
-				<i class="ion-gear-a"></i>&nbsp;Settings
-			</a>
-		</li>
+		<a rel='prefetch' class="item {segment === 'settings' ? 'active' : undefined}" href="settings">
+			<i class="settings icon"></i>&nbsp;Settings
+		</a>
 
-		<li class="item">
-			<a rel='prefetch' href='/profile/@{$session.user.username}' class="nav-link">
-				<!-- <img src={$user.image} class="user-pic" alt={$user.username}> -->
-				{$session.user.username}
-			</a>
-		</li>
+		<a rel='prefetch' class="item {segment === 'profile' ? 'active' : undefined}" href='/profile/@{$session.user.username}'>
+			<i class="user icon"></i>&nbsp;{$session.user.username}
+		</a>
+	</div>
 	{:else}
 		<div class="right menu">
 			<div class="item">

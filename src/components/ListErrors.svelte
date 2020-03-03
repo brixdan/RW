@@ -3,7 +3,7 @@
 </script>
 
 {#if errors}
-    <div class="ui list">
+    <div class="ui error message">
         {#each Object.keys(errors) as key}
             <div class="item">{key} {errors[key]}</div>
         {/each}
