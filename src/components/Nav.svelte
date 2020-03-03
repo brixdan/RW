@@ -9,10 +9,11 @@
 <style>
 </style>
 
-<div class="ui five item right aligned menu">
-	<a class="item {segment === undefined ? 'active' : undefined}" href=".">home</a>
-	<a class="item {segment === 'about' ? 'active' : undefined}" href="about">about</a>
-	<a rel=prefetch class="item {segment === 'blog' ? 'active' : undefined}" href="blog">blog</a>
+<div class="ui medium top menu transition visible"  >
+	<div class="ui container">
+	<a class="item {segment === undefined ? 'active' : undefined}" href=".">Home</a>
+	<a class="item {segment === 'about' ? 'active' : undefined}" href="about">About</a>
+	<a rel=prefetch class="item {segment === 'blog' ? 'active' : undefined}" href="blog">Blog</a>
 	{#if $session.user}
 		<li class="item">
 			<a rel='prefetch' href="/editor" class="nav-link" class:active="{$page.path === '/editor'}">
@@ -33,11 +34,18 @@
 			</a>
 		</li>
 	{:else}
-			<a rel='prefetch' class="item" href="/login" class:active="{$page.path === '/login'}">
-				sign in
-			</a>
-			<a rel='prefetch' class="item" href="/register" class:active="{$page.path === '/register'}">
-				sign up
-			</a>
+		<div class="right menu">
+			<div class="item">
+				<a class="ui button" rel='prefetch' href="login" class:active="{$page.path === '/login'}">
+					Sign in
+				</a>
+			</div>
+			<div class="item">
+				<a class="ui primary button" rel='prefetch' href="register" class:active="{$page.path === '/register'}">
+					Sign up
+				</a>
+			</div>
+		</div>
 	{/if}
+	</div>
 </div>

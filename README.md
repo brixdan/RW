@@ -199,5 +199,10 @@ Second step is sapper auth architecture, starting with [this article](https://ww
         	.listen(PORT, err => {
         		if (err) console.log('error', err);
         	});
-        Nothing else needed to start using sessions, but error: <App> was created with unknown prop
-        'session'. Cutoff static/manifest.jason
+        Note: nothing else needed to start using sessions, but error: 
+        <App> was created with unknown prop 'session' - suddenly disappeared!. 
+        Cutoff static/manifest.json
+        
+   
+   - Initiate utils in src/node-modules for post method - should be replaced by smth more permanent.
+   - Taking semantic login sample at [here](https://semantic-ui.com/examples/login.html)
