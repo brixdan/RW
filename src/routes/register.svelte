@@ -5,12 +5,13 @@
 
     const { session } = stores();
 
+    let username = '';
     let email = '';
     let password = '';
     let errors = null;
 
     async function submit(event) {
-        const response = await post(`auth/login`, { email, password });
+        const response = await post(`auth/register`, { username, email, password });
 
         // TODO handle network errors
         errors = response.errors;
@@ -20,11 +21,25 @@
             goto('/');
         }
     }
+
     jQuery(document)
             .ready(function() {
                 jQuery('.ui.form')
                         .form({
                             fields: {
+                                username: {
+                                    identifier  : 'username',
+                                    rules: [
+                                        {
+                                            type   : 'empty',
+                                            prompt : 'Please enter your username'
+                                        },
+                                        {
+                                            type   : 'length[3]',
+                                            prompt : 'Please enter a valid username'
+                                        }
+                                    ]
+                                },
                                 email: {
                                     identifier  : 'email',
                                     rules: [
@@ -56,11 +71,10 @@
                 ;
             })
     ;
-
 </script>
 
 <svelte:head>
-    <title>Sign in • Conduit</title>
+    <title>Sign up • Conduit</title>
 </svelte:head>
 
 <style type="text/css">
@@ -77,14 +91,24 @@
         <h2 class="ui teal image header">
             <img src="logo.png" class="image" alt="logo">
             <div class="content">
-                Log-in to your account
+                Sign up
             </div>
         </h2>
+
+        <div class="ui message">
+            Have an account? <a href="/login">Sign In</a>
+        </div>
 
         <ListErrors {errors}/>
 
         <form on:submit|preventDefault={submit} class="ui large form">
             <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="ui user icon"></i>
+                        <input type="text" name="username" placeholder="Your Name" bind:value={username}>
+                    </div>
+                </div>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="ui mail icon"></i>
@@ -97,16 +121,13 @@
                         <input type="password" name="password" placeholder="Password" bind:value={password}>
                     </div>
                 </div>
-                <button class="ui fluid large teal submit button" type="submit" disabled='{!email || !password}'>Log In</button>
+                <button class="ui fluid large teal submit button" type="submit" disabled='{!email || !password}'>Sign Up</button>
             </div>
 
             <div class="ui error message"></div>
 
         </form>
 
-        <div class="ui message">
-            New to us? <a href="register">Sign Up</a>
-        </div>
     </div>
 </div>
 
