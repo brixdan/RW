@@ -32,18 +32,15 @@
 </svelte:head>
 
 <style type="text/css">
-    .image {
-        margin-top: -100px;
-    }
     .column {
         max-width: 450px;
     }
 </style>
-    <div class="ui container medium one column centered">
-        <div class="column">
+    <div class="ui container medium one column">
+        <div class="ui center aligned row">
             <div class="row">
 
-                <h1 class="text centered">Your Settings</h1>
+                <h1 class="ui text centered">Your Settings</h1>
 
                 <ListErrors {errors}/>
 
@@ -51,9 +48,13 @@
 
                 <hr />
 
-                <button class="ui button right aligned" on:click={logout}>
-                    Or click here to logout.
-                </button>
             </div>
         </div>
+            <div class="right attached row">
+
+                <div class="ui negative basic button right aligned" on:click={logout}>
+                    Or click here to logout.
+                </div>
+            </div>
+        <br />
     </div>

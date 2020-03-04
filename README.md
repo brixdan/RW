@@ -206,3 +206,7 @@ Second step is sapper auth architecture, starting with [this article](https://ww
    
    - Initiate utils in src/node-modules for post method - should be replaced by smth more permanent.
    - Taking semantic login sample at [here](https://semantic-ui.com/examples/login.html)
+   - Note <div class="ui button.. doesn't provide submit as expcted!!!
+   - Note ui right floated primary button only alligns with div class="ui clearing segment"
+   read [here](https://stackoverflow.com/questions/37966397/how-to-align-button-right-using-semantic-ui)
+   - Note: `<SettingsForm> was created with unknown prop 'id'` etc just add hidden params to form and include in event dispatch.

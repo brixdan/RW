@@ -10,7 +10,8 @@
 </script>
 
 <form on:submit|preventDefault='{submit}' class="ui large form">
-    <div class="ui stacked segment">
+    <div class="ui clearing segment">
+
         <div class="field">
             <input name="image" type="text" placeholder="URL of profile picture" bind:value={image}>
         </div>
@@ -31,8 +32,11 @@
             <input name="password" type="password" placeholder="New Password" bind:value={password}>
         </div>
 
-        <button class="ui button right aligned" type="submit" disabled={inProgress}>
+        <button class="ui right floated primary button" type="submit" disabled={inProgress}>
             Update Settings
         </button>
+
     </div>
+
+
 </form>
