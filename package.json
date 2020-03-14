@@ -31,6 +31,8 @@
     "fomantic-ui": "^2.8.4",
     "gulp": "^4.0.2",
     "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^0.7.0",
     "rollup": "^1.20.0",
     "rollup-plugin-babel": "^4.0.2",
     "rollup-plugin-svelte": "^5.0.1",
