@@ -19,33 +19,25 @@
 			: api.del(`articles/${article.slug}/favorite`, user && user.token)));
 	}
 </script>
-
-<div class="article-preview">
-	<div class="article-meta">
-		<a href='/profile/@{article.author.username}'>
-			<img src={article.author.image} alt={article.author.username} />
-		</a>
-
-		<div class="info">
-			<a class="author" href='/profile/@{article.author.username}'> {article.author.username}
+  <div class="item">
+			<img class="ui image tiny" src={article.author.image} alt={article.author.username} />
+			<div class="content">
+			<a class="ui header user" href='/@{article.author.username}'> {article.author.username}
 			</a>
 			<span class="date">
 				{new Date(article.createdAt).toDateString()}
 			</span>
-		</div>
+
 
 		{#if user}
-			<div class="pull-xs-right">
-				<button class='btn btn-sm {article.favorited ? "btn-primary" : "btn-outline-primary"}' on:click={toggleFavorite}>
-					<i class="ion-heart"></i> {article.favoritesCount}
+				<button class='ui button small {article.favorited ? "primary" : ""}' on:click={toggleFavorite}>
+					<i class="icon heart"></i> {article.favoritesCount}
 				</button>
-			</div>
 		{/if}
-	</div>
 
 	<a href='/article/{article.slug}' rel='prefetch' class="preview-link">
-		<h1>{article.title}</h1>
-		<p>{article.description}</p>
+		<div class="ui header green">{article.title}</div>
+		<div class="ui text">{article.description}</div>
 		<span>Read more...</span>
 		<ul class="tag-list">
 			{#each article.tagList as tag}
@@ -56,3 +48,4 @@
 		</ul>
 	</a>
 </div>
+  </div>

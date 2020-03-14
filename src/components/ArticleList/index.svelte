@@ -35,21 +35,20 @@
 		({ articles, articlesCount } = await api.get(query, $session.user && $session.user.token));
 	}
 </script>
-
+<div class="ui relaxed divided list">
 {#if articles}
 	{#if articles.length === 0}
-		<div class="article-preview">
+		<div class="ui label warning">
 			No articles are here... yet.
 		</div>
 	{:else}
-		<div>
 			{#each articles as article (article.slug)}
 				<ArticlePreview {article} user={$session.user}/>
 			{/each}
-
 			<ListPagination {articlesCount} page={parseInt($page.params.user, 10)}  />
-		</div>
+
 	{/if}
 {:else}
-	<div class="article-preview">Loading...</div>
+	<div class="ui active centered inline loader"></div>
 {/if}
+</div>
