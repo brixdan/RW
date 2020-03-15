@@ -51,8 +51,8 @@
 	}
 
 	.content :global(li) {
-		margin: 0 0 0.5em 0;
-	}
+			 margin: 0 0 0.5em 0;
+		 }
 </style>
 
 <svelte:head>

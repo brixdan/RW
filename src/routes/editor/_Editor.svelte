@@ -49,45 +49,47 @@
 	}
 </script>
 
-<div class="editor-page">
-	<div class="container page">
+<style>
+.ui.container {
+	max-width: 500px;
+}
+</style>
+
+	<div class="ui container">
 		<div class="row">
-			<div class="col-md-10 offset-md-1 col-xs-12">
 				<ListErrors {errors}/>
 
-				<form>
-					<fieldset>
-						<fieldset class="form-group">
-							<input class="form-control form-control-lg" type="text" placeholder="Article Title" bind:value={article.title}>
-						</fieldset>
+				<div class="ui form">
+					<div class="field">
+						<div class="field">
+							<input class="ui input" type="text" placeholder="Article Title" bind:value={article.title}>
+						</div>
 
-						<fieldset class="form-group">
-							<input class="form-control" type="text" placeholder="What's this article about?" bind:value={article.description}>
-						</fieldset>
+						<div class="field">
+							<input class="ui input" type="text" placeholder="Gist" bind:value={article.description}>
+						</div>
 
-						<fieldset class="form-group">
-							<textarea class="form-control" rows="8" placeholder="Write your article (in markdown)" bind:value={article.body}/>
-						</fieldset>
+						<div class="field">
+							<textarea class="" rows="8" placeholder="Body in markdown" bind:value={article.body}/>
+						</div>
 
-						<fieldset class="form-group">
-							<input class="form-control" type="text" placeholder="Enter tags" use:enter={addTag}>
+						<div class="field">
+							<input class="input" type="text" placeholder="Enter tags" use:enter={addTag}>
 
-							<div class="tag-list">
+							<div class="ui horizontal list">
 								{#each article.tagList as tag, i}
-									<span class="tag-default tag-pill">
+									<span>
 										<i class="ion-close-round" on:click='{() => remove(i)}'/>
 										{tag}
 									</span>
 								{/each}
 							</div>
-						</fieldset>
+						</div>
 
-						<button class="btn btn-lg pull-xs-right btn-primary" type="button" disabled={inProgress} on:click={publish}>
+						<button class="ui button primary" type="button" disabled={inProgress} on:click={publish}>
 							Publish Article
 						</button>
-					</fieldset>
-				</form>
-			</div>
+					</div>
+				</div>
 		</div>
 	</div>
-</div>
