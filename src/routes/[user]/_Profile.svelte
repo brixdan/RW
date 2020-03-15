@@ -31,6 +31,7 @@
 					<div class="ui header medium centered">{profile.username}</div>
 					<div class="ui header small centered">{profile.bio}</div>
 		            <div class="right floated column">
+<!--						Still works. Probably some predefined by sapper.-->
 					{#if isUser}
 						<a href="/settings" class="ui small button right floated">
 							<i class="ui icon cog"></i> Edit Profile Settings

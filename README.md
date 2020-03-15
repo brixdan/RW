@@ -210,3 +210,9 @@ Second step is sapper auth architecture, starting with [this article](https://ww
    - Note ui right floated primary button only alligns with div class="ui clearing segment"
    read [here](https://stackoverflow.com/questions/37966397/how-to-align-button-right-using-semantic-ui)
    - Note: `<SettingsForm> was created with unknown prop 'id'` etc just add hidden params to form and include in event dispatch.
+   - Note in semantic-ui right floated only works inside of ui clearing segment parent:
+   [see this](https://stackoverflow.com/questions/37966397/how-to-align-button-right-using-semantic-ui)
+
+Third step - articles and tags
+
+- Install marked - a markdown parser and compiler

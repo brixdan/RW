@@ -20,26 +20,24 @@
 	}
 </script>
   <div class="ui clearing segment">
-	<img class="ui image tiny" src={article.author.image} alt={article.author.username} />
-	<div class="content">
+	<img class="ui top aligned mini circular image" src={article.author.image} alt={article.author.username} />
 	<a class="ui header user" href='/@{article.author.username}'> {article.author.username}
 	</a>
-	<span class="date">
+	  <div class="ui text bottom aligned">
 		{new Date(article.createdAt).toDateString()}
-	</span>
-
-
+	  </div>
 		{#if user}
 				<button class='ui right floated button small {article.favorited ? "primary" : ""}' on:click={toggleFavorite}>
 					<i class="icon heart"></i> {article.favoritesCount}
 				</button>
 		{/if}
 
-	<a href='/article/{article.slug}' rel='prefetch'>
+
 		<div class="ui header green">{article.title}</div>
-		<div class="ui text">{article.description}</div>
+		<div class="ui small text">{article.description}</div>
+		<a href='/article/{article.slug}' rel='prefetch'>
 		<span>Read more...</span>
-	</a>
+	    </a>
 	<div class="ui right floated horizontal list">
 	{#each article.tagList as tag}
 	   <div class="item">
@@ -49,5 +47,4 @@
 		</div>
 	{/each}
 	</div>
-</div>
 </div>
