@@ -216,3 +216,5 @@ Second step is sapper auth architecture, starting with [this article](https://ww
 Third step - articles and tags
 
 - Install marked - a markdown parser and compiler
+- Note: <textarea placeholder="Write a comment..." bind:value={body} rows="2" ></textarea> respects rows only in case it's under parent "ui form"
+- Note: how grouping is done without table just with  floating in segment and item top alignment under ui horizontal list

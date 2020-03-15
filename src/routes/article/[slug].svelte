@@ -42,19 +42,19 @@
 			<ArticleMeta {article} user={$session.user}/>
 	</div>
 
-	<div class="container page">
-		<div class="row article-content">
-			<div class="col-xs-12">
-				<div>{@html markup}</div>
-
-				<ul class="tag-list">
-					{#each article.tagList as tag}
-						<li class="tag-default tag-pill tag-outline">
-							{tag}
-						</li>
-					{/each}
-				</ul>
-			</div>
+	<div class="ui container">
+				<div class="row">{@html markup}</div>
+<!--		{console.log("article.tagList = ",article.tagList)}-->
+		<div class="row">
+		<div class="ui horizontal list">
+			{#each article.tagList as tag}
+				<div class="item">
+					<div class="ui tag label">
+						{tag}
+					</div>
+				</div>
+			{/each}
+		</div>
 		</div>
 
 		<hr />

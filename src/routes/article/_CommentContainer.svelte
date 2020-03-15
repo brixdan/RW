@@ -9,7 +9,7 @@
 	export let user;
 </script>
 
-<div class="col-xs-12 col-md-8 offset-md-2">
+<div class="ui comments">
 	{#if user}
 		<div>
 			<ListErrors {errors}/>

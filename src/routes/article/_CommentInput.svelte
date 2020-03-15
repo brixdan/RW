@@ -19,13 +19,11 @@
 	}
 </script>
 
-<form class="card comment-form" on:submit|preventDefault='{submit}'>
-	<div class="card-block">
-		<textarea class="form-control" placeholder="Write a comment..." bind:value={body} rows="3"/>
+<form class="ui form" on:submit|preventDefault='{submit}'>
+	<div class="field">
+		<textarea placeholder="Write a comment..." bind:value={body} rows="2" ></textarea>
 	</div>
-
-	<div class="card-footer">
-		<img src={user.image} class="comment-author-img" alt={user.username} >
-		<button class="btn btn-sm btn-primary" type="submit">Post Comment</button>
-	</div>
+	<button type="submit" class="ui green middle aligned labeled submit icon button">
+		<i class="icon edit"></i> Post Comment
+	</button>
 </form>

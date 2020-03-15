@@ -14,26 +14,22 @@
 	}
 </script>
 
-<div class="card">
-	<div class="card-block">
-		<p class="card-text">{comment.body}</p>
-	</div>
+<div class="comment">
+	<a href='@{comment.author.username}' class="avatar">
+	<img src={comment.author.image}  alt={comment.author.username} />
+	</a>
 
-	<div class="card-footer">
-		<a href='/profile/@{comment.author.username}' class="comment-author">
-			<img src={comment.author.image} class="comment-author-img" alt={comment.author.username} />
+	<div class="content">
+		<a class="author" href="/@{comment.author.username}">
+			{comment.author.username}
 		</a>
-
-		<a href='/profile/@{comment.author.username}' class="comment-author">{comment.author.username}</a>
-
-		<span class="date-posted">
-			{new Date(comment.createdAt).toDateString()}
-		</span>
-
+		<div class="metadata">
+			<span class="date">{new Date(comment.createdAt).toDateString()}</span>
+		</div>
+		<div class="text">{comment.body}</div>
 		{#if user && comment.author.username === user.username}
-			<span class="mod-options">
-				<i class="ion-trash-a" on:click='{remove}'></i>
-			</span>
+				<i class="icon trash" on:click='{remove}'></i>
+				<i class="icon reply" on:click='{remove}'></i>
 		{/if}
 	</div>
 </div>
