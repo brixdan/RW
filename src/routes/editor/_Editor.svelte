@@ -74,19 +74,22 @@
 						</div>
 
 						<div class="field">
-							<input class="input" type="text" placeholder="Enter tags" use:enter={addTag}>
+							<input class="input" type="text" placeholder="Enter tags" use:enter={(value) => addTag(value)} />
+						</div>
 
+						<div class="field">
 							<div class="ui horizontal list">
 								{#each article.tagList as tag, i}
-									<span>
-										<i class="ion-close-round" on:click='{() => remove(i)}'/>
-										{tag}
-									</span>
+									<div class="item">
+										<div class="ui tag label"  on:click='{() => remove(i)}'>
+											{tag}
+										</div>
+									</div>
 								{/each}
 							</div>
 						</div>
 
-						<button class="ui button primary" type="button" disabled={inProgress} on:click={publish}>
+						<button class="ui button primary" type="submit" disabled={inProgress} on:click={publish}>
 							Publish Article
 						</button>
 					</div>
