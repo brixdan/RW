@@ -5,6 +5,7 @@
 	let range;
 
 	$: {
+		console.log('articlesCount', articlesCount)
 		range = [];
 		for (let i = 0; i < Math.ceil(articlesCount / 10); ++i) {
 			range.push(i);
@@ -12,6 +13,7 @@
 	}
 </script>
 
+<div>
 {#if articlesCount > 10}
 	<nav>
 		<ul class="pagination">
@@ -24,8 +26,11 @@
 		</ul>
 	</nav>
 {/if}
+</div>
 
-<div aria-label="Pagination Navigation" role="navigation" class="ui pagination pointing secondary menu">
+
+<div aria-label="Pagination Navigation" role="navigation"
+	 class="ui pagination pointing secondary menu">
 
 	<a
 			aria-current="false"

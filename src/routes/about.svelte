@@ -3,16 +3,35 @@
 	onMount(() => {
 		jQuery('.selection').dropdown();
 	});
+
+	const toggleRed = () => {
+		jQuery('.header').toggleClass('my');
+	}
+
 </script>
+
+<style>
+	.my {
+		color: blue;
+	}
+	.ui.header.red.my {
+		color: yellow;
+	}
+</style>
 
 <svelte:head>
 	<title>About</title>
 </svelte:head>
+<div class="ui header red my" >Great success!</div>
+<div class='ui button centered' on:click={toggleRed}>Click Me</div>
 
-<div class="ui header">About this site</div>
+<figure>
+	<img class="ui image small" alt='Borat' src='great-success.png'>
+	<figcaption>HIGH FIVE!</figcaption>
+</figure>
 
-<p>This is the 'about' page. There's not much here.</p>
-<br />
+<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+
 
 <div class="ui multiple search selection dropdown">
 	<input type="hidden" name="country" />
