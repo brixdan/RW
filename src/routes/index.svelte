@@ -1,13 +1,5 @@
 <script>
-
-const toggleRed = () => {
-	jQuery('.header').toggleClass('my');
-}
-
+    import Home from '../components/Home.svelte';
 </script>
 
-
-<svelte:head>
-	<title>Sapper project template</title>
-</svelte:head>
-
+<Home p={1}/>

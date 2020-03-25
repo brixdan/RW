@@ -6,11 +6,15 @@
 </script>
 
 {#if tags}
-	<div className="tag-list">
+	<div class="ui horizontal list">
 		{#each tags as tag}
-			<a href="." class="tag-default tag-pill" on:click='{() => dispatch("select", { tag })}'>
-				{tag}
-			</a>
+			<div class="item">
+				<div class="ui tag label">
+					<a href="." class="" on:click='{() => dispatch("select", { tag })}'>
+						{tag}
+					</a>
+				</div>
+			</div>
 		{/each}
 	</div>
 {:else}
