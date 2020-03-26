@@ -15,16 +15,13 @@
 
 <div>
 {#if articlesCount > 10}
-	<nav>
-		<ul class="pagination">
-
+	<div class="ui horizontal list">
 			{#each range as v}
-				<li class='page-item {v === page ? "active": ""}'>
-					<a class="page-link" href="/profile/{v ? v + 1 : ''}">{v + 1}</a>
+				<li class='item {v === page ? "red": "black"}'>
+					<a class="" href="./p={v ? v + 1 : ''}">{v + 1}</a>
 				</li>
 			{/each}
-		</ul>
-	</nav>
+	</div>
 {/if}
 </div>
 
