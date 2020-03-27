@@ -27,7 +27,7 @@
 			<i class="settings icon"></i>&nbsp;Settings
 		</a>
 
-		<a rel='prefetch' class="item {segment === 'profile' ? 'active' : undefined}" href='/@{$session.user.username}'>
+		<a rel='prefetch' class="item {segment === 'profile' ? 'active' : undefined}" href='profile/@{$session.user.username}'>
 			<i class="user icon"></i>&nbsp;{$session.user.username}
 		</a>
 	</div>

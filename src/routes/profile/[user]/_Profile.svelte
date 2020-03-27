@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '@sapper/app';
-	import ArticleList from '../../components/ArticleList/index.svelte';
+	import ArticleList from '../../../components/ArticleList/index.svelte';
 	import * as api from 'api.js';
 
 	export let profile;
@@ -25,8 +25,8 @@
 	<title>{profile.username} • Conduit</title>
 </svelte:head>
 
-<div class="ui one column grid container">
-	<div class="grey column centered">
+<div class="ui one column grid">
+	<div class="inverted grey column centered">
 					<img src={profile.image} class="ui image tiny centered" alt={profile.username} />
 					<div class="ui header medium centered">{profile.username}</div>
 					<div class="ui header small centered">{profile.bio}</div>
@@ -50,8 +50,8 @@
 
 	<div class="column">
 	<div class="ui tabular menu">
-		<a href='/@{profile.username}' class="item {favorites ? '' : 'active'}">My Articles</a>
-		<a class="item {favorites ? 'active' : ''}" href='/@{profile.username}/favorites'>Favorited Articles</a>
+		<a href='/profile/@{profile.username}' class="item {favorites ? '' : 'active'}">My Articles</a>
+		<a class="item {favorites ? 'active' : ''}" href='/profile/@{profile.username}/favorites'>Favorited Articles</a>
 	</div>
 	<ArticleList tab='profile' username='{profile.username}' {favorites}/>
 	</div>

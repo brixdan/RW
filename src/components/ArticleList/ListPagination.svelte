@@ -18,7 +18,7 @@
 	<div class="ui horizontal list">
 			{#each range as v}
 				<li class='item {v === page ? "red": "black"}'>
-					<a class="" href="./p={v ? v + 1 : ''}">{v + 1}</a>
+					<a class="" href="/{v ? v + 1 : ''}">{v + 1}</a>
 				</li>
 			{/each}
 	</div>
