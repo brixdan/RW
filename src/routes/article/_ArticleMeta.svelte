@@ -15,12 +15,12 @@
 
 <div class="ui horizontal list">
 	<div class="item top aligned">
-	<a href='@{article.author.username}'>
+	<a href='/profile/@{article.author.username}'>
 		<img class="ui top aligned mini circular image" src={article.author.image} alt={article.author.username}>
 	</a>
 	</div>
 	<div class="item top aligned">
-	<a href='@{article.author.username}' class="ui sub header"> {article.author.username}</a>
+	<a href='/profile/@{article.author.username}' class="ui sub header"> {article.author.username}</a>
 		{new Date(article.createdAt).toDateString()}
 	</div>
 

@@ -72,6 +72,7 @@ self.addEventListener('fetch', event => {
 					cache.put(event.request, response.clone());
 					return response;
 				} catch(err) {
+					console.log('err=',err);
 					const response = await cache.match(event.request);
 					if (response) return response;
 

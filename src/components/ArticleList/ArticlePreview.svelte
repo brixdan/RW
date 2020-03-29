@@ -21,7 +21,7 @@
 </script>
   <div class="ui clearing segment">
 	<img class="ui top aligned mini circular image" src={article.author.image} alt={article.author.username} />
-	<a class="ui header user" href='/@{article.author.username}'> {article.author.username}
+	<a class="ui header user" href='/profile/@{article.author.username}'> {article.author.username}
 	</a>
 	  <div class="ui text bottom aligned">
 		{new Date(article.createdAt).toDateString()}

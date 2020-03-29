@@ -11,23 +11,23 @@
 
 <div class="ui medium top menu transition visible"  >
 	<div class="ui container">
-	<a class="item {segment === undefined ? 'active' : undefined}" href=".">
+	<a class="item {segment === undefined ? 'active' : undefined}" href="/">
 		<i class="home icon"></i>Home</a>
-	<a class="item {segment === 'about' ? 'active' : undefined}" href="about">
+	<a class="item {segment === 'about' ? 'active' : undefined}" href="/about">
 		<i class="info icon"></i>About</a>
-	<a rel=prefetch class="item {segment === 'blog' ? 'active' : undefined}" href="blog">
+	<a rel=prefetch class="item {segment === 'blog' ? 'active' : undefined}" href="/blog">
 		<i class="blog icon"></i>Blog</a>
 	{#if $session.user}
 	<div class="right menu">
-		<a rel='prefetch' class="item {segment === 'editor' ? 'active' : undefined}" href="editor">
+		<a rel='prefetch' class="item {segment === 'editor' ? 'active' : undefined}" href="/editor">
 			<i class="edit icon"></i>&nbsp;New Post
 		</a>
 
-		<a rel='prefetch' class="item {segment === 'settings' ? 'active' : undefined}" href="settings">
+		<a rel='prefetch' class="item {segment === 'settings' ? 'active' : undefined}" href="/settings">
 			<i class="settings icon"></i>&nbsp;Settings
 		</a>
 
-		<a rel='prefetch' class="item {segment === 'profile' ? 'active' : undefined}" href='profile/@{$session.user.username}'>
+		<a rel='prefetch' class="item {segment === 'profile' ? 'active' : undefined}" href='/profile/@{$session.user.username}'>
 			<i class="user icon"></i>&nbsp;{$session.user.username}
 		</a>
 	</div>
