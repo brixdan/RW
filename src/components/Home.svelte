@@ -24,8 +24,8 @@
     <title>Conduit</title>
 </svelte:head>
 
-<div class="ui two column grid">
-        <div class="column">
+<div class="ui grid">
+        <div class="fifteen wide column">
             <MainView {p} {tag} bind:tab />
         </div>
         <div class="column">
