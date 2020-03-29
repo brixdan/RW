@@ -11,7 +11,7 @@
 
 <div class="ui medium top menu transition visible"  >
 	<div class="ui container">
-	<a class="item {segment === undefined ? 'active' : undefined}" href="/">
+	<a class="item {$page.path === '/' ? 'active' : ''}" href="/">
 		<i class="home icon"></i>Home</a>
 	<a class="item {segment === 'about' ? 'active' : undefined}" href="/about">
 		<i class="info icon"></i>About</a>
