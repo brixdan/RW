@@ -29,7 +29,7 @@ polka()
 		resave: false,
 		saveUninitialized: true,
 		cookie: {
-			maxAge: 31536000
+			maxAge: 315360000
 		},
 		store: new FileStore({
 			path: process.env.NOW ? `/tmp/sessions` : `.sessions`

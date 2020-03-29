@@ -45,7 +45,7 @@
 			{#each articles as article (article.slug)}
 				<ArticlePreview {article} user={$session.user}/>
 			{/each}
-			<ListPagination {articlesCount} page={parseInt($page.params.user, 10)}  />
+			<ListPagination {articlesCount} page={p}  />
 
 	{/if}
 {:else}
