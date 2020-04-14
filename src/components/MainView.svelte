@@ -17,6 +17,11 @@
         tab = "all";
         tag = null;
     }
+
+    function popularTags() {
+        tab = "tags";
+        tag = "all";
+    }
 </script>
 
 <div class="ui tabular menu">
@@ -32,6 +37,9 @@
 
         <a href="." class='item {tab === "all" ? "active" : "" }' on:click='{globalfeed}'>
             Global Feed
+        </a>
+        <a href="." class='item {tag === "all" ? "active" : "" }' on:click='{popularTags}'>
+            Popular tags
         </a>
     {#if tag}
         <a href="." class='item {tab === "tag" ? "active" : "" }' on:click='{() => tab = "tag"}'>

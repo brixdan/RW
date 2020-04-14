@@ -42,9 +42,11 @@
 			No articles are here... yet.
 		</div>
 	{:else}
+	<div class="ui three stackable cards">
 			{#each articles as article (article.slug)}
 				<ArticlePreview {article} user={$session.user}/>
 			{/each}
+	</div>
 			<ListPagination {articlesCount} page={p}  />
 
 	{/if}

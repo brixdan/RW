@@ -221,3 +221,7 @@ Third step - articles and tags
 - Note: pagination link is prone to error by putting a point before slash in 
 
         	<a class="" href="/{v ? v + 1 : ''}">{v + 1}</a>
+        	
+### Got errors connecting to backend MongoDB in docker and local instance.
+- Favorites functionality is not working, says article is undefined in 26 ArticlePreview.svelte.
+- Comment is created in DB, but is not linked to corresponding article        	

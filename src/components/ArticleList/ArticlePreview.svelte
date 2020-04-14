@@ -19,13 +19,21 @@
 			: api.del(`articles/${article.slug}/favorite`, user && user.token)));
 	}
 </script>
-  <div class="ui clearing segment">
-	<img class="ui top aligned mini circular image" src={article.author.image} alt={article.author.username} />
-	<a class="ui header user" href='/profile/@{article.author.username}'> {article.author.username}
-	</a>
-	  <div class="ui text bottom aligned">
-		{new Date(article.createdAt).toDateString()}
-	  </div>
+<div class="ui red card compact">
+  <div class="ui padded content">
+	 <div class="ui one column grid">
+		 <div class="column">
+			<img class="ui top aligned mini circular image" src={article.author.image} alt={article.author.username} />
+
+				<a class="ui top aligned header user green" href='/profile/@{article.author.username}'> {article.author.username}
+				</a>
+
+			 <div class="date mini">
+				 {new Date(article.createdAt).toDateString()}
+			 </div>
+		 </div>
+	 </div>
+
 		{#if user}
 				<button class='ui right floated button small {article.favorited ? "primary" : ""}' on:click={toggleFavorite}>
 					<i class="icon heart"></i> {article.favoritesCount}
@@ -47,4 +55,5 @@
 		</div>
 	{/each}
 	</div>
+</div>
 </div>
