@@ -29,6 +29,14 @@
 	<img class="ui image small" alt='Borat' src='great-success.png'>
 	<figcaption>HIGH FIVE!</figcaption>
 </figure>
+<figure>
+	<img class="ui image large" alt='Tech' src='./images/about2.png'>
+	<figcaption>Graph</figcaption>
+</figure>
+<figure>
+	<img class="ui image large" alt='Tech' src='./images/about3.png'>
+	<figcaption>Stack</figcaption>
+</figure>
 
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
 
