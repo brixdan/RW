@@ -8,3 +8,5 @@ yarn-error.log
 /__sapper__/
 /.sessions/
 /.idea
+
+.now
