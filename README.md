@@ -99,7 +99,7 @@ If your app can't be exported to a static site, you can use the [now-sapper](htt
 
 When using Svelte components installed from npm, such as [@sveltejs/svelte-virtual-list](https://github.com/sveltejs/svelte-virtual-list), Svelte needs the original component source (rather than any precompiled JavaScript that ships with the component). This allows the component to be rendered server-side, and also keeps your client-side app smaller.
 
-Because of that, it's essential that the bundler doesn't treat the package as an *external dependency*. You can either modify the `external` option under `server` in [rollup.config.js](rollup.config.js) or the `externals` option in [webpack.config.js](webpack.config.js), or simply install the package to `devDependencies` rather than `dependencies`, which will cause it to get bundled (and therefore compiled) with your app:
+Because of that, it's essential that the bundler doesn't treat the package as an *external dependency*. You can either modify the `external` option under `server` in [rollup.config.js](rollup.config.js) or the `externals` option in webpack.config.js, or simply install the package to `devDependencies` rather than `dependencies`, which will cause it to get bundled (and therefore compiled) with your app:
 
 ```bash
 npm install -D @sveltejs/svelte-virtual-list
@@ -224,4 +224,13 @@ Third step - articles and tags
         	
 ### Got errors connecting to backend MongoDB in docker and local instance.
 - Favorites functionality is not working, says article is undefined in 26 ArticlePreview.svelte.
-- Comment is created in DB, but is not linked to corresponding article        	
+- Comment is created in DB, but is not linked to corresponding article     
+
+###  Failed deploy thinksters's realworld sapper to new version (now 2) to Vercel
+
+- package node-fetch is required by Vercel? Which is under question mark. Seems like they completely deprecated Now version 1 and moved to serverless stuff on new Vercel version.
+- deployed fine to Heroku, together with api const base = https://my-rw-api.herokuapp.com/api
+- will try to use purchased domain name svemantic.com with working development on https://dry-badlands-01564.herokuapp.com/ 
+
+### Summary
+ - Password to brixdan account on MongoDB = z0x9c8v7
