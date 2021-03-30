@@ -234,3 +234,12 @@ Third step - articles and tags
 
 ### Summary
  - Password to brixdan account on MongoDB = z0x9c8v7
+- Only could deploy for version 10 of node:
+- {
+  "name": "TODO",
+  "description": "TODO",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
