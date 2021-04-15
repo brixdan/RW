@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "export": "cross-env NODE_ENV=production sapper export --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
@@ -18,6 +18,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "compression": "^1.7.1",
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express-session": "^1.17.0",
     "marked": "^0.8.0",
