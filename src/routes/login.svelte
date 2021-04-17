@@ -10,10 +10,12 @@
     let errors = null;
 
     async function submit(event) {
-        const response = await post(`auth/login`, { email, password });
+        const response = await post(`/auth/login`, { email, password });
 
         // TODO handle network errors
-        errors = response.errors;
+        errors = {};
+        if (response.errors) errors = response.errors;
+        if (errors||true) errors["my"] = "Another my error."
 
         if (response.user) {
             $session.user = response.user;
