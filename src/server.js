@@ -45,6 +45,6 @@ polka()
 			})
 		})
 	)
-	.listen(7000, err => {
+	.listen(PORT, err => {
 		if (err) console.log('error', err);
 	});
