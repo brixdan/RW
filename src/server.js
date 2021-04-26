@@ -6,8 +6,8 @@ import * as sapper from '@sapper/server';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import sessionFileStore from 'session-file-store';
-require('dotenv').config();
-const { PORT, NODE_ENV } = process.env;
+const PORT = 7000
+const NODE_ENV = "production"
 const dev = NODE_ENV === 'development';
 console.log("dev=",dev,"PORT=",PORT);
 

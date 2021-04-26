@@ -5,6 +5,7 @@ semantic.json
 /src/node_modules/@sapper/
 yarn-error.log
 /cypress/screenshots/
+/__sapper__/
 /.sessions/
 /.idea
 
