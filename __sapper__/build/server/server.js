@@ -2,6 +2,7 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var dotenv = _interopDefault(require('dotenv'));
 var sirv = _interopDefault(require('sirv'));
 var polka = _interopDefault(require('polka'));
 var compression = _interopDefault(require('compression'));
@@ -4639,8 +4640,8 @@ function serve({ prefix, pathname, cache_control }
 
 function noop$1(){}
 
-const PORT = 3000;
-const NODE_ENV = "production";
+dotenv.config();
+const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 console.log("dev=",dev,"PORT=",PORT);
 
