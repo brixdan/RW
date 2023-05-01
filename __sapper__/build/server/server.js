@@ -20,8 +20,8 @@ var bodyParser = _interopDefault(require('body-parser'));
 var session = _interopDefault(require('express-session'));
 var sessionFileStore = _interopDefault(require('session-file-store'));
 
-//const base = 'https://conduit.productionready.io/api';
-const base = 'https://my-rw-api.herokuapp.com/api';
+const base = 'https://conduit.productionready.io/api';
+// const base = 'https://my-rw-api.herokuapp.com/api';
 // const base = 'http://localhost:3000/api';
 
 
